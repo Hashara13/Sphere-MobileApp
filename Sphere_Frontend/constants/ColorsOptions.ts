@@ -20,5 +20,6 @@ export const ColorsOptions = {
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
   },
-  TabActive:primaryColor
+  TabActive:primaryColor,
+  TextBold:'#b07e00'
 };
