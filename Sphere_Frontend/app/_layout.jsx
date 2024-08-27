@@ -52,7 +52,8 @@ export default function RootLayout() {
 
   return (
     <ClerkProvider
-    tokenCache={tokenCache} publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}    >
+    tokenCache={tokenCache} 
+    publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}    >
       <SignedIn>
         <Stack>
           <Stack.Screen
@@ -63,7 +64,7 @@ export default function RootLayout() {
           />
       
         </Stack>
-      </SignedIn>
+    </SignedIn>
       <SignedOut>
         <LoginPage />
       </SignedOut>

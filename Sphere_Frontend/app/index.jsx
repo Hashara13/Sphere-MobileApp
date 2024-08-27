@@ -9,20 +9,21 @@ export default function Index() {
 
   useEffect(() => {
     CheckNavLoaded();
-  }, [rootNavigationState.key]); 
+  }, [rootNavigationState.key]);
 
   const CheckNavLoaded = () => {
     if (!rootNavigationState.key) {
       return null; 
+    }
   };
 
   return (
     <View style={{ flex: 1 }}>
       {user ? (
-                <Redirect href={'(tabs)'} />
+        <Redirect href={'(tabs)'} />
       ) : (
         <Redirect href={'/(LoginPage)'} />
       )}
     </View>
   );
-}}
+}
