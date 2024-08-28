@@ -6,37 +6,37 @@ import * as Linking from "expo-linking";
 import { ColorsOptions } from "../constants/ColorsOptions";
 import CustomButton from "../constants/CustomButton";
 
-export const useWarmUpBrowser = () => {
-  React.useEffect(() => {
-    void WebBrowser.warmUpAsync();
-    return () => {
-      void WebBrowser.coolDownAsync();
-    };
-  }, []);
-};
+// export const useWarmUpBrowser = () => {
+//   React.useEffect(() => {
+//     void WebBrowser.warmUpAsync();
+//     return () => {
+//       void WebBrowser.coolDownAsync();
+//     };
+//   }, []);
+// };
 
-WebBrowser.maybeCompleteAuthSession();
+// WebBrowser.maybeCompleteAuthSession();
 
 const LoginPage = () => {
-  useWarmUpBrowser();
-  const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
+  // useWarmUpBrowser();
+  // const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
 
-  const onPress = React.useCallback(async () => {
-    try {
-      const { createdSessionId, signIn, signUp, setActive } = await startOAuthFlow({
-        redirectUrl: Linking.createURL('(tabs)', { scheme: 'myapp' }),
-      });
+  // const onPress = React.useCallback(async () => {
+  //   try {
+  //     const { createdSessionId, signIn, signUp, setActive } = await startOAuthFlow({
+  //       redirectUrl: Linking.createURL('(tabs)', { scheme: 'myapp' }),
+  //     });
 
-      if (createdSessionId) {
-        console.log("OAuth flow successful:", createdSessionId);
-        setActive({ session: createdSessionId });
-      } else {
-        console.log("OAuth flow failed or no session created");
-      }
-    } catch (err) {
-      console.error('OAuth error', err);
-    }
-  }, [startOAuthFlow]);
+  //     if (createdSessionId) {
+  //       console.log("OAuth flow successful:", createdSessionId);
+  //       setActive({ session: createdSessionId });
+  //     } else {
+  //       console.log("OAuth flow failed or no session created");
+  //     }
+  //   } catch (err) {
+  //     console.error('OAuth error', err);
+  //   }
+  // }, [startOAuthFlow]);
 
   return (
     <View style={styles.container}>
@@ -53,7 +53,7 @@ const LoginPage = () => {
           with convenience & engagement.
         </Text>
       </View>
-      <CustomButton onPress={onPress} text="Get Started" iconName="arrow-right-circle" />
+      <CustomButton onPress={onPress} text="Login" iconName="arrow-right-circle" />
     </View>
   );
 };
